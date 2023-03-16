@@ -535,4 +535,11 @@
 
 
 
-// return arrayOfSheep.filter(sheep => sheep === true).reduce((total, sheep) => total + sheep)
+//  TASK DESCENDING NUM
+
+// function descendingOrder(n){
+//     let newN = String(n).split('').sort((a,b) => b-a).join('')
+//       return newN;
+// }
+
+// descendingOrder(42351)
