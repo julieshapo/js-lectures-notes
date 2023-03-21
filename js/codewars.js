@@ -465,7 +465,7 @@
 // console.log(getTotalBalanceByGender)
 
 
-// КЛАСИ ГЕТЕРИ СТЕТЕРИ
+// КЛАСИ ГЕТЕРИ СТЕТЕРИ ------------------------------------------------
 
 // class User {
 //   email;
@@ -521,7 +521,7 @@
 // console.log(mango.isBlacklisted("poly@mail.com")); // true
 
 
-// CODEWARS
+// CODEWARS-------------------------------------------------------------------
 
 // function squareSum(numbers){
 //   let sum = 0;
@@ -535,7 +535,7 @@
 
 
 
-//  TASK DESCENDING NUM
+//  TASK DESCENDING NUM------------------------------------------------------------------------
 
 // function descendingOrder(n){
 //     let newN = String(n).split('').sort((a,b) => b-a).join('')
@@ -543,3 +543,61 @@
 // }
 
 // descendingOrder(42351)
+
+
+// TASK SUM NUM IN BETWEEN AND INCLUDED ---------------------------------------------------
+
+// function getSum(a, b) {
+//   let min = Math.min(a, b);
+//   let max = Math.max(a, b);
+//   return (max - min + 1) * (min + max) / 2;
+// }
+
+
+// TASK SUM AND AVARAGE OF ELEMENTS IN ARRAY -----------------------------------------------
+
+// const times = [1,2,3,4,5]
+
+// const sum = times.reduce((a, b) => a + b, 0);
+// const avg = (sum / times.length) || 0;
+
+// console.log(`The sum is: ${sum}. The average is: ${avg}.`);
+
+// FIND THE SHORTEST WORD LENGTH
+
+// function findShort(s) {
+//     let arr = s.split(' ');
+//     console.log(arr)
+//     let shWoL = arr[0].length;
+//     for (let word of arr) {
+//         if (word.length < shWoL) {
+//             shWoL = word.length
+//         }
+//     }
+//     return shWoL;
+
+    
+// }
+
+// console.log(findShort("there is nothing more wonderful than life"))
+
+
+// REMOVE EXCLAMATION -------------------------------------------------------------------
+
+// function removeExclamationMarks(s) {
+
+//     let newS = s.split('').reduce((acc, el) => el !== '!') 
+//     return newS
+
+//     //  let index = s.indexOf('!')
+//     // for (let i = 0; i <= s.length; i += 1) {
+//     //     if (i === index) {
+//     //         return s.split('').slice(0, i).join('')
+//     //     }
+//     // }
+// }
+
+
+
+// console.log(removeExclamationMarks("Hello World!"))
+// console.log(removeExclamationMarks("DfCutAmMCK!gYMfyFrtZA JsvKMfdoCm!NePmiWABhg"))

@@ -229,3 +229,46 @@ const scores = [1, 2, 3, 4, 5];
 
 // console.log(oldClients); // ["Mango", "Ajax", "Poly", "Kiwi"]
 // console.log(newClients); // ["Monkong", "Singu"]
+
+
+// --------TASK #1------------------
+
+// const value = '8 11'
+// const valuesArray = value.split(' ')
+// const result = valuesArray[0] * valuesArray[1]
+// console.log(result); // 88
+// const addResult = valuesArray[0] + valuesArray[1]
+// console.log(addResult); // 811 - виконалася конкатинація
+// // для того, щоб скласти
+// const correctAdd = Number(valuesArray[0]) + Number(valuesArray[1])
+// console.log(correctAdd) // 19
+
+// -----------TASK #2 ----------------------
+
+// написати скрипт, що виводить в консоль імена і телефони користувачів
+
+// const names = 'Jacob, William, Solomon, Artemis'
+// const phones = '380675553322, 380676664422, 38507774433, 380974446699'
+
+// файли у форматі CSV - всі дані зберігаються в одному файлі в одному рядку, один фай для
+// імен, окремий для телефонів і т.д.CSV
+
+// const namesArrays = names.split(',');
+// const phonesArrays = phones.split(',');
+
+// for (let name of namesArrays) {
+//     const index = namesArrays.indexOf(name)
+//     console.log(`${name} - ${phonesArrays[index]}`)
+// }
+
+// ------------------------ARRAY TOTAL NUM-----------
+
+// const cart = [54, 25, 67, 43, 89, 34, 57, 68, 120, 138]
+// let total = 0;
+
+// for (const value of cart) {
+//     total += value;
+// }
+
+// console.log(total)
+
