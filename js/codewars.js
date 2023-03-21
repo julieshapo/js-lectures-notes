@@ -586,18 +586,45 @@
 
 // function removeExclamationMarks(s) {
 
-//     let newS = s.split('').reduce((acc, el) => el !== '!') 
-//     return newS
-
-//     //  let index = s.indexOf('!')
-//     // for (let i = 0; i <= s.length; i += 1) {
-//     //     if (i === index) {
-//     //         return s.split('').slice(0, i).join('')
-//     //     }
-//     // }
+//     return s.split('!').join('')
 // }
-
 
 
 // console.log(removeExclamationMarks("Hello World!"))
 // console.log(removeExclamationMarks("DfCutAmMCK!gYMfyFrtZA JsvKMfdoCm!NePmiWABhg"))
+
+
+
+// THE FEAST OF MANY BEAST ---------------------------------------
+
+// function feast(beast, dish) {
+
+//     console.log(beast[0])
+//     console.log(dish[0])
+//     console.log(beast[beast.length - 1])
+//     console.log(dish[dish.length - 1])
+
+//     return beast[0] === dish[0] && beast[beast.length - 1] === dish[dish.length - 1] ? true : false;
+       
+// }
+
+// console.log(feast("great blue heron", "garlic naan"));
+// console.log(feast("chickadee", "chocolate cake"));
+// console.log(feast("brown bear", "bear claw"));
+
+
+// ALL STAR CODE CHALLENGE #18 --------------------------------------------
+
+// function strCount(str, letter) {  
+//     let result = 0;
+//         for (const char of str) {
+//             if (letter === char) {
+//                 result += 1;
+//             }
+//     }
+//     return result;
+// }
+
+// console.log(strCount('Hello', 'o'));
+// console.log(strCount('Hello', 'l'));
+// console.log(strCount('', 'z'));
