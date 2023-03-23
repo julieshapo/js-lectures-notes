@@ -615,7 +615,7 @@
 
 // ALL STAR CODE CHALLENGE #18 --------------------------------------------
 
-// function strCount(str, letter) {  
+// function strCount(str, letter) {
 //     let result = 0;
 //         for (const char of str) {
 //             if (letter === char) {
@@ -628,3 +628,19 @@
 // console.log(strCount('Hello', 'o'));
 // console.log(strCount('Hello', 'l'));
 // console.log(strCount('', 'z'));
+
+
+// Find the stray number #19 -----------------------------------------------
+
+// function stray(numbers) {
+
+//     // return Number(numbers.filter(num => num !== numbers[0]))
+
+//    return numbers.find(number => numbers.indexOf(number) === numbers.lastIndexOf(number))
+    
+
+// }
+
+// console.log(stray([1, 1, 2]))
+// console.log(stray([17, 17, 3, 17, 17, 17, 17]))
+// console.log(stray([ 13, 13, 6, 13]))
