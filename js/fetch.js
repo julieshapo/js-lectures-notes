@@ -63,6 +63,7 @@
 
 // const data = getPosts();
 // data.then((data) => console.log(data));
+
 // getPosts()
 //   .then((response) => response.json())
 //   .then((data) => console.log(data))
