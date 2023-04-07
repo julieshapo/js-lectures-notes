@@ -164,49 +164,49 @@
 // Добавь методы `addNote(note)`, `removeNote(text)` и
 // `updatePriority(text, newPriority)`.
 
-class Notes {
-    static Priority = {
-        LOW: 'low',
-        NORMAL: 'normal',
-        HIGH: 'high',
-    }
+// class Notes {
+//     static Priority = {
+//         LOW: 'low',
+//         NORMAL: 'normal',
+//         HIGH: 'high',
+//     }
 
-    constructor(items = []) {
-        this.items = items;
-    }
+//     constructor(items = []) {
+//         this.items = items;
+//     }
     
-    addItem(item) {
-        this.items.push(item);
-    }
+//     addItem(item) {
+//         this.items.push(item);
+//     }
 
-    removeItem(text) {
-      this.item = this.items.filter(item => item.text !== text); // filter() поверне новий масив з тими об'єктами, які потрібно залишити 
-    }
+//     removeItem(text) {
+//       this.item = this.items.filter(item => item.text !== text); // filter() поверне новий масив з тими об'єктами, які потрібно залишити 
+//     }
 
-    updatePriority(text, newPriority) {
-        this.items = this.items.map(item =>
-            item.text === text ? { ...item, priority: newPriority } : item
-        );
-    }
-}
+//     updatePriority(text, newPriority) {
+//         this.items = this.items.map(item =>
+//             item.text === text ? { ...item, priority: newPriority } : item
+//         );
+//     }
+// }
 
-const myNotes = new Notes();
-console.log(myNotes);
+// const myNotes = new Notes();
+// console.log(myNotes);
 
-myNotes.addItem({ text: "my 1st task", priority: Notes.Priority.LOW });
-console.log(myNotes.items);
+// myNotes.addItem({ text: "my 1st task", priority: Notes.Priority.LOW });
+// console.log(myNotes.items);
 
-myNotes.addItem({
-    text: 'my 2nd task',
-    priority: Notes.Priority.HIGH,
-});
-console.log(myNotes.items)
+// myNotes.addItem({
+//     text: 'my 2nd task',
+//     priority: Notes.Priority.HIGH,
+// });
+// console.log(myNotes.items)
 
-myNotes.removeItem('my 2nd task');
-console.log(myNotes.items);
+// myNotes.removeItem('my 2nd task');
+// console.log(myNotes.items);
 
-myNotes.updatePriority({
-    text: "my 1st task",
-    priority: Notes.Priority.NORMAL,
-});
-console.log(myNotes.items);
+// myNotes.updatePriority({
+//     text: "my 1st task",
+//     priority: Notes.Priority.NORMAL,
+// });
+// console.log(myNotes.items);
