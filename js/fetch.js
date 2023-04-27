@@ -1,179 +1,69 @@
-// const refs = {
-//   getButton: document.querySelector(".get"),
-//   form: document.querySelector(".form"),
-//   title: document.querySelector(".title"),
-//   text: document.querySelector(".text"),
-//   formUpdate: document.querySelector(".formUpdate"),
-//   titleUpdate: document.querySelector(".titleUpdate"),
-//   textUpdate: document.querySelector(".textUpdate"),
-//   deleteButton: document.querySelector(".delete"),
-//   body: document.querySelector("body"),
-// };
+// 1) Base URL
+// 2) resources
+// 3) Parameters
+const form = document.querySelector('.formFetch');
+const select = document.querySelector('.category');
+const pageNumber = document.querySelector('.input');
+const newsCounter = document.querySelector('.counter');
+const subTitle = document.querySelector('.totalPages');
+const loadMoreBtn = document.querySelector('.load');
 
-// const getPosts = () => {
-//   fetch("https://jsonplaceholder.typicode.com/posts")
-//     .then((response) => response.json())
-//     .then((data) => console.log(data))
-//     .catch((error) => console.log(error));
-// };
+const list = document.querySelector('.list');
 
-// const getPosts = () => {
-//   return fetch("https://jsonplaceholder.typicode.com/posts");
-// };
+const BASE_URL = 'https://newsapi.org/v2';
+const API_KEY = '6c988335d49243278dab9d2a1218b430';
+const URL = `${BASE_URL}/top-headlines?apiKey=${API_KEY}&category=sport&country=ua&pageSize=10`;
 
-// const createHtml = (data) => {
-//   const li = document.createElement("li");
-//   li.classList.add("list-group-item");
-//   li.innerHTML = `` + `<h3>${data.title}</h3>` + `<p>${data.body}</p>`;
-//   return li;
-// };
+let currentPage = 1;
 
-// const createList = (data) => {
-//   const result = data.reduce((acc, item) => (acc += `<li class="list-group-item">${item.title}</li>`), "");
-//   refs.body.insertAdjacentHTML("afterbegin", result);
-// };
-
-// const getPosts = async () => {
-//   try {
-//     const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-//     const data = await response.json();
-//     createList(data);
-//     console.log(data);
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//   } finally {
-//   }
-
-//   // console.log(data);
-// };
-
-// import axios from 'axios';
-
-// const getPosts = async () => {
-//   try {
-//     const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
-//     createList(response.data);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// getPosts();
-
-// const data = getPosts();
-// data.then((data) => console.log(data));
-
-// getPosts()
-//   .then((response) => response.json())
-//   .then((data) => console.log(data))
-//   .catch((error) => console.log(error));
-
-// const createPost = (e) => {
-//   e.preventDefault();
-//   const title = refs.title.value;
-//   const text = refs.text.value;
-
-//   return fetch("https://jsonplaceholder.typicode.com/posts", {
-// method: "POST",
-// body: JSON.stringify({ title: title, body: text }),
-// headers: {
-//   "Content-type": "application/json; charset=UTF-8",
-// },
-//   });
-// };
-
-// const createPost = async (e) => {
-//   e.preventDefault();
-//   const title = refs.title.value;
-//   const text = refs.text.value;
-//   try {
-//     const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-//       method: "POST",
-//       body: JSON.stringify({ title: title, body: text }),
-//       headers: {
-//         "Content-type": "application/json; charset=UTF-8",
-//       },
-//     });
-//     const data = await response.json();
-//     console.log(data); // тут може бути фнукция для виводу на екран нового поста
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-const createPost = async (e) => {
-//   e.preventDefault();
-//   const title = refs.title.value;
-//   const text = refs.text.value;
-//   try {
-//     const response = await axios.post(
-//       "https://jsonplaceholder.typicode.com/posts",
-//       { title: title, body: text },
-//       {
-//         headers: {
-//           "Content-type": "application/json; charset=UTF-8",
-//         },
-//       }
-//     );
-//     console.log(response.data);
-//   } catch (error) {
-//     console.log(error);
-//   }
+const updateUi = (data, pageSize) => {
+    newsCounter.textContent = `There are ${data?.totalResults} news related`;
+    subTitle.textContent = `There are ${Math.ceil(data?.totalResults / pageSize)} pages of news`;
+    list.innerHTML = '';
 };
 
-// createPost()
-//   .then((response) => response.json())
-//   .then((data) => console.log(data))
-//   .catch((error) => console.log(error));
+const createUrl = () => {
+    const category = select.value;
+    const pageSize = pageNumber.value;
+    const url = `${BASE_URL}/top-headlines?apiKey=${API_KEY}&category=${category}&country=ua&pageSize=${pageSize}&page=${currentPage}`;
 
-// const updatePost = (e) => {
-//   e.preventDefault();
-//   const title = refs.titleUpdate.value;
-//   const text = refs.textUpdate.value;
-//   fetch("https://jsonplaceholder.typicode.com/posts/100", {
-//     method: "PATCH",
-//     body: JSON.stringify({ title: title, body: text }),
-//     headers: {
-//       "Content-type": "application/json; charset=UTF-8",
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => console.log(data))
-//     .catch((error) => console.log(error));
-// };
+    return url;
+};
 
-// const updatePost = async (e) => {
-//   e.preventDefault();
-//   const title = refs.titleUpdate.value;
-//   const text = refs.textUpdate.value;
-//   try {
-//     const response = await fetch("https://jsonplaceholder.typicode.com/posts/100", {
-//       method: "PATCH",
-//       body: JSON.stringify({ title: title, body: text }),
-//       headers: {
-//         "Content-type": "application/json; charset=UTF-8",
-//       },
-//     });
-//     const data = await response.json();
-//     console.log(data);
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const handleSubmit = e => {
+    e.preventDefault();
+    const url = createUrl();
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data);
+            if (e.type === 'submit') {
+                updateUi(data);
+            }
 
-// const deletePost = () => {
-//   fetch("https://jsonplaceholder.typicode.com/posts/100", {
-//     method: "DELETE",
-//   })
-//     .then((response) => response.json())
-//     .then((data) => console.log(data))
-//     .catch((error) => console.log(error));
-// };
+            insertContent(data.articles);
+            currentPage += 1;
+            if (currentPage > Math.ceil(data?.totalResults / pageSize)) {
+                loadMoreBtn.classList.add('hide');
+            }
+        })
+        .catch(error => console.log(error));
+};
 
-// refs.getButton.addEventListener("click", getPosts);
-// refs.form.addEventListener("submit", createPost);
-// refs.formUpdate.addEventListener("submit", updatePost);
-// refs.deleteButton.addEventListener("click", deletePost);
+form.addEventListener('submit', handleSubmit);
+loadMoreBtn.addEventListener('click', handleSubmit);
+
+const createListItem = item => `<li>
+    ${item.urlToImage ? `<img src="${item.urlToImage}" alt="${item.description}" >` : ''}
+    <h2>${item.title}</h2>
+    <p>${item.description ? item.description : ''}</p>
+    <p>${item.author ?? ''}</p>
+    <a href='${item.url}' target="_blank">Go to news</a>
+</li>`;
+
+const generateNews = items => items?.reduce((acc, item) => acc + createListItem(item), '');
+
+const insertContent = items => {
+    const result = generateNews(items);
+    list.insertAdjacentHTML('beforeend', result);
+};
